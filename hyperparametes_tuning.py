@@ -46,20 +46,13 @@ class HyperparametersTuning:
 
             hyperparameters = pd.DataFrame(columns=["order", "sorder", "error", "sMAPE"])
 
-            # pvalues = range(0, 4)
-            # dvalues = range(0, 3)
-            # qvalues = range(0, 3)
-            # Pvalues = range(2, 3)
-            # Dvalues = range(0, 1)
-            # Qvalues = range(1, 2)
-            # mvalues = [0,1,3,4,7,12]
-            pvalues = [1]  # range(0, 4)
-            dvalues = [2]  # range(0, 3)
-            qvalues = [2]  # range(0, 3)
-            Pvalues = [2]  # range(2, 3)
-            Dvalues = [1]  # range(0, 1)
-            Qvalues = [1]  # range(1, 2)
-            mvalues = [7]
+            pvalues = range(0, 4)
+            dvalues = range(0, 3)
+            qvalues = range(0, 3)
+            Pvalues = range(2, 3)
+            Dvalues = range(0, 1)
+            Qvalues = range(1, 2)
+            mvalues = [0,1,3,4,7,12]
 
             orders = list(itertools.product(pvalues, dvalues, qvalues))
 
