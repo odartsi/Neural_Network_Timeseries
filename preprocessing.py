@@ -392,41 +392,25 @@ def _exclude_bad_ids(
     pd.DataFrame
         the filtered dataframe.
     """
-    bad_ids=['1849161e-0243-44ec-977f-679989e38221',
-       'd696df1b-56b5-4ec1-96ed-75e16a873687',
-       'e7156f9a-b29a-4121-aedb-ba887662d17b',
-       'd15a8738-5db5-4d26-8899-08a1073a3f3a',
-       'c5f65882-8e7c-4e79-95cd-0a4190f01bfc',
-       '19f436ae-e04c-4519-a190-8399417c6bbd',
-       'af853eb5-610d-4655-ad2a-1fac0cc906aa',
-       'ca17ba43-3959-48a7-a0c2-d3d99aea3fcb',
-       '9eb05b65-cc20-468c-a751-15b957122aae',
-       'a156a556-9ef6-42af-8011-eec393a4d5eb',
-       '2ec9ebb1-7fad-4c29-a346-ed6a8d117a72',
-       'd074c1f1-6f5e-442b-bfc4-1a1000cb3e74',
-       '82b9d328-b8fe-444c-9afd-1bc7d4de7643',
-       '86f672f8-ea71-4da4-af5e-1248cfb9a625',
-       '33ff07c8-4676-4c6c-8d6b-a044f08c317a',
-       '876c0930-5883-4d7f-81a8-4702d4e9d077',
-        '0f0ff13b-0159-4a7d-b04c-949c9f20833a']
-    # rev_thr, ad_spend_thr = thresholds["revenues"], thresholds["ad_spend"]
-    # df_filter = df.groupby("id").resample(freq, on="date").sum().reset_index()
-    # idx_to_filter = df_filter[
-    #     (df_filter.revenues >= rev_thr) & (df_filter.ad_spend >= ad_spend_thr)
-    # ].id.unique()
+   
+    rev_thr, ad_spend_thr = thresholds["revenues"], thresholds["ad_spend"]
+    df_filter = df.groupby("id").resample(freq, on="date").sum().reset_index()
+    idx_to_filter = df_filter[
+         (df_filter.revenues >= rev_thr) & (df_filter.ad_spend >= ad_spend_thr)
+    ].id.unique()
 
-    # id_list = []
-    # for id in df_filter.id.unique():
-    #     df_temp = df_filter[df_filter.id == id]
-    #     if (
-    #         sum(df_temp.ad_spend[-14:]) < ad_spend_thr
-    #         or sum(df_temp.revenues[-14:]) < rev_thr
-    #     ):
-    #         id_list.append(id)
-    #
-    # df_filter = df_filter.loc[~df_filter.id.isin(id_list)]
+    id_list = []
+    for id in df_filter.id.unique():
+         df_temp = df_filter[df_filter.id == id]
+         if (
+             sum(df_temp.ad_spend[-14:]) < ad_spend_thr
+             or sum(df_temp.revenues[-14:]) < rev_thr
+         ):
+             id_list.append(id)
+    
+    df_filter = df_filter.loc[~df_filter.id.isin(id_list)]
     logger.info(Colours.YELLOW + f"Removed {len(bad_ids)} ids." + Colours.ENDC)
-    return df[~df.campaign_id.isin(bad_ids)] #df[~df.id.isin(id_list)]
+    return df[~df.id.isin(id_list)]
 
 
 def _create_unique_ids(
