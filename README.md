@@ -4,7 +4,7 @@ Welcome to the repository for my work on time series forecasting to predict reve
 
 ## ARIMA Model
 
-Inside the `ARIMA_model` folder, you will find all the original work related to time series forecasting using the ARIMA model. For more detailed information, please refer to the README file within that specific folder.
+Inside the [`ARIMA_model`](https://github.com/odartsi/Neural_Network_Timeseries/tree/main/ARIMA_model) folder, you will find all the original work related to time series forecasting using the ARIMA model. For more detailed information, please refer to the README file within that specific folder.
 
 ## Neural Network Model
 
