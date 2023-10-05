@@ -123,21 +123,17 @@ def predict(
     n_aleatoric_features = len(params["aleatoric_features"])
 
     data = preprocess_future_data(df, params_preprocess, normaliser, encoder)
-    print('back to model predict ')
     keys = list(data.keys())
-    print(len(data[keys[0]].columns))
-    print(' +++++++++ ')
+
 
 
     data = filter_data(
         data, params["window_len"], params_preprocess["thresholds"], cli_arg
     )
-    print('back to model predict ')
     keys = list(data.keys())
-    print(len(data[keys[0]].columns))
-    print(' +++++++++ ')
+   
 
-    # encoder = get_encoder(params["pre-trained-transformers_path"] + "encoder.pkl")
+    encoder = get_encoder(params["pre-trained-transformers_path"] + "encoder.pkl")
 
     full_datasets = create_fulldataset(
         data,
