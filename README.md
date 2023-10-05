@@ -22,4 +22,3 @@ The primary focus of this repository is on a Neural Network model based on the L
 
 Additionally, the `verified_predictions.py` file serves the role of verifying that the model's accuracy was calculated correctly. This verification is performed when sufficient time has passed, and actual values become available.
 
-Feel free to explore the respective files and folders for more details on each step of the process. If you have any questions or need further information, please don't hesitate to reach out. Happy forecasting!
