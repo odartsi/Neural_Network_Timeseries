@@ -8,7 +8,7 @@ Inside the [`ARIMA_model`](https://github.com/odartsi/Neural_Network_Timeseries/
 
 ## Neural Network Model
 
-![Neural Network Model](<img width="380" alt="Screenshot 2023-10-04 at 14 46 00" src="https://github.com/odartsi/Neural_Network_Timeseries/assets/58295268/7a40d2c6-ff7c-4ed3-ad5d-f0e56c956a48">)
+<img width="380" alt="Screenshot 2023-10-04 at 14 46 00" src="https://github.com/odartsi/Neural_Network_Timeseries/assets/58295268/7a40d2c6-ff7c-4ed3-ad5d-f0e56c956a48">
 
 
 The primary focus of this repository is on a Neural Network model based on the LSTM Encoder-Decoder architecture. The workflow is organized as follows:
